@@ -5,15 +5,11 @@ import numpy as np
 def parse_coords(coords_string: str) -> np.array:
     pairs = coords_string.strip().replace(" ", "").split(";")
     pairs = [[float(e) for e in pair.split(",")] for pair in pairs]
-    coord_pairs = [np.array(pair) for pair in pairs]
-    coord_pairs.append(coord_pairs[0])
-    coord_pairs = np.array(coord_pairs)
 
-    return coord_pairs
+    return pairs
 
 
 if __name__ == "__main__":
-    """
     main(
         np.array((-79.7, 39.8)),
         parse_coords(
@@ -26,8 +22,7 @@ if __name__ == "__main__":
         arbitrary_large_number=50,
         ear_clipping=True,
     )
-    """
-    """
+
     # Sample Test 1
     main(
         np.array((39.65, -87.75)),
@@ -38,7 +33,7 @@ if __name__ == "__main__":
         75,
     )
     print("Test 1 completed")
-    """
+
     # Sample Test 2
     main(
         np.array((39.65, -87.75)),
