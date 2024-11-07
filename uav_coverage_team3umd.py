@@ -441,7 +441,10 @@ def main(
     start_adjust = lat_long_to_meters(sc)
 
     if ear_clipping:
-        polygons = cut_polygon(input_adjust)
+        input_aug = [np.array(pair) for pair in input_adjust]
+        input_aug.append(input_aug[0])
+        input_aug = np.array(input_aug)
+        polygons = cut_polygon(input_aug)
     else:
         polygons = [input_adjust]
 
